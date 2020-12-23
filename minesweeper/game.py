@@ -272,9 +272,12 @@ class MinesweeperEnv(Env):
         def scale_image(img, scale_factor=self.scale_factor):
             return scale(img, (int(scale_factor*img.get_width()), int(scale_factor*img.get_height())))
 
-        if self.chicken: images_names = ['hidden', 'revealed', 'flag', 'chicken', 'misplaced_flag', 'exploded_chicken', 'disabled_chicken']
-        else: images_names = ['hidden', 'revealed', 'flag', 'mine', 'misplaced_flag', 'exploded_mine', 'disabled_mine']
-
+        images_names = ['hidden', 'revealed', 'flag', 'misplaced_flag']
+        if self.chicken:
+            images_names += ['chicken', 'exploded_chicken', 'disabled_chicken']
+        else:
+            images_names += ['mine', 'exploded_mine', 'disabled_mine']
+        
         self.images = {}
         for img_name in images_names:
             with pkg_resources.path(images, img_name + '.png') as path:
