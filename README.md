@@ -16,9 +16,9 @@ If you want to play as a human, you can !
 Just run the human_agent.py example !
 
 Commands:
-    - Single left click : Reveal
-    - Double left click : Reveal around
-    - Right click : Flag/Unflag
+ - Single left click : Reveal
+ - Double left click : Reveal around
+ - Right click : Flag/Unflag
 
 ## Random
 To see how to setup your own agent, take example on the random agent !
