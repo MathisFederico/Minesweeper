@@ -1,3 +1,4 @@
+import numpy as np
 from learnrl import Agent
 from minesweeper import MinesweeperEnv
 
