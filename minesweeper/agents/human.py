@@ -8,7 +8,7 @@ class HumanAgent(Agent):
     def __init__(self, env:MinesweeperEnv):
         self.env = env
  
-    def act(self, observation:np.ndarray):
+    def act(self, observation:np.ndarray, greedy=True):
         waiting = True
         while waiting:
             if self.env.pygame_is_init:

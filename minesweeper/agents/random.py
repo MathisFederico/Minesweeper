@@ -7,7 +7,7 @@ class RandomAgent(Agent):
     def __init__(self, env:MinesweeperEnv):
         pass
 
-    def act(self, observation:np.ndarray):
+    def act(self, observation:np.ndarray, greedy=True):
         grid_shape = observation.shape
         return (np.random.randint(grid_shape[0]), np.random.randint(grid_shape[1]), np.random.randint(2))
     
