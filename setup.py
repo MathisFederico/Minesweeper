@@ -31,7 +31,7 @@ setup(
     long_description_content_type="text/x-rst",
     url="https://github.com/MathisFederico/Minesweeper",
     packages=find_packages(exclude=("tests", "docs")),
-    include_package_data=True,
+    include_package_data={"hello": ["*.png"]},
     install_requires=requirements,
     classifiers=[
         "Programming Language :: Python :: 3",
