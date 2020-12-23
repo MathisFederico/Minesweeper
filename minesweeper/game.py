@@ -196,21 +196,36 @@ class MinesweeperEnv(Env):
             self._plot_block(index, state)
         
         # Plot infos
+
+        ## Score
+        score_text = self.score_font.render("SCORE", 1, (255, 10, 10))
         score = self.score_font.render(str(round(self.score, 4)), 1, (255, 10, 10))
+
+        self.window.blit(score_text, (0.1*self.header_size, 0.75*self.width))
         self.window.blit(score, (0.1*self.header_size, 0.8*self.width))
 
+        ## Time left
+        time_text = self.num_font.render("TIME", 1, (255, 10, 10))
         self.time_left = self.max_time - time() + self.start_time
         time_left = self.num_font.render(str(int(self.time_left+1)), 1, (255, 10, 10))
+
+        self.window.blit(time_text, (0.1*self.header_size, 0.03*self.width))
         self.window.blit(time_left, (0.1*self.header_size, 0.1*self.width))
 
+        ## Bombs left
+        bombs_text = self.num_font.render("BOMBS", 1, (255, 255, 10))
+        left_text = self.num_font.render("LEFT", 1, (255, 255, 10))
         potential_bombs_left = self.n_bombs - self.flaged_bombs - self.flaged_empty
         potential_bombs_left = self.num_font.render(str(int(potential_bombs_left)), 1, (255, 255, 10))
+
+        self.window.blit(bombs_text, (0.1*self.header_size, 0.4*self.width))
+        self.window.blit(left_text, (0.1*self.header_size, 0.45*self.width))
         self.window.blit(potential_bombs_left, (0.1*self.header_size, 0.5*self.width))
 
         pygame.display.flip()
         pygame.time.wait(10)
         if self.done:
-            pygame.time.wait(500)
+            pygame.time.wait(3000)
     
     @staticmethod
     def _get_color(n, max_n):
