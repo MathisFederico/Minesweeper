@@ -1,3 +1,4 @@
 gym
-numpy
-learnrl
+numpy == 1.19.3
+learnrl >= 0.3.0
+pygame
